@@ -1,21 +1,18 @@
 import { useState } from 'react'
 import './App.css'
 import { Search } from './components/Search'
+import { Countries } from './components/Countries'
 
 function App() {
-  const [resultados, setResultados] = useState([])
+  const [countries,setCountries] = useState([])
 
-  const getPaises = async (name) => {
-  let response = await fetch("https://restcountries.com/v3.1/name/"+name)
-  let data = await response.json() 
-  setResultados(data)
-  }
+  console.log(countries)
 
   return (
     <>
-      <h1>Buscar países</h1>
-      <Search getPaises={getPaises} />
-    
+      <h1>Buscador de paises</h1>
+      <Search setCountries={setCountries}/>
+      <Countries countries={countries}/>
     </>
   )
 }
