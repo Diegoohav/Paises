@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import { Search } from './components/Search'
-import { Countries } from './components/Countries'
+import { Search } from './Components/Search'
+import { Show } from './Components/Show'
 
 function App() {
-  const [countries,setCountries] = useState([])
-
-  console.log(countries)
+  const [country, setCountry] = useState([])
 
   return (
     <>
-      <h1>Buscador de paises</h1>
-      <Search setCountries={setCountries}/>
-      <Countries countries={countries}/>
+      <h1>Buscador de países</h1>
+
+      <Search setCountry={setCountry} setError={setError}/>
+      
+      <Show countries={countries} error={error}/>
     </>
   )
 }
